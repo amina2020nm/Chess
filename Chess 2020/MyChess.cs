@@ -158,8 +158,6 @@ namespace Chess
                             N = N + 2;
                         }
                         break;
-                    default:
-                        break;
                 }
             }
 
