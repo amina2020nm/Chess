@@ -87,7 +87,7 @@ namespace Chess
         }
         public void Peshki()
         {
-            while (true)
+            while (knopki.Key != ConsoleKey.Enter)
             {
                 if (x == 0 && y == 6 || x == 2 && y == 6 || x == 4 && y == 6 || x == 6 && y == 6 || x == 8 && y == 6 || x == 10 && y == 6 || x == 12 && y == 6 || x == 14 && y == 6)
                 {
@@ -120,8 +120,49 @@ namespace Chess
                             break;
                     }
                 }
+                knopki = Console.ReadKey(true);
+                int M = 0, N = 0, x_p = x, y_p = y;
+                switch (knopki.Key)
+                {
+                    case ConsoleKey.W:
+                        if (y > 0)
+                        {
+                            y--;
+                            Console.SetCursorPosition(x, y);
+                            M--;
+                        }
+                        break;
+                    case ConsoleKey.A:
+                        if (x > 0)
+                        {
+                            x = x - 2;
+                            Console.SetCursorPosition(x, y);
+                            z--;
+                            N = N - 2;
+                        }
+                        break;
+                    case ConsoleKey.S:
+                        if (y < 7)
+                        {
+                            y++;
+                            Console.SetCursorPosition(x, y);
+                            M++;
+                        }
+                        break;
+                    case ConsoleKey.D:
+                        if (x < 7 * 2)
+                        {
+                            x = x + 2;
+                            Console.SetCursorPosition(x, y);
+                            z++;
+                            N = N + 2;
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
-        }
 
+        }
     }
 }
